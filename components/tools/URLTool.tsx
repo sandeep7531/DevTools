@@ -1,95 +1,95 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Copy, Check } from 'lucide-react'
-import { copyToClipboard } from '@/lib/utils'
+import { useState } from "react";
+import { Copy, Check } from "lucide-react";
+import { copyToClipboard } from "@/lib/utils";
 
 export function URLTool() {
-  const [mode, setMode] = useState<'encode' | 'decode'>('encode')
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
-  const [copied, setCopied] = useState(false)
+  const [mode, setMode] = useState<"encode" | "decode">("encode");
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const handleEncode = () => {
     if (!input) {
-      setOutput('')
-      return
+      setOutput("");
+      return;
     }
     try {
-      const encoded = encodeURIComponent(input)
-      setOutput(encoded)
+      const encoded = encodeURIComponent(input);
+      setOutput(encoded);
     } catch (err) {
-      setOutput('Error encoding URL')
+      setOutput("Error encoding URL");
     }
-  }
+  };
 
   const handleDecode = () => {
     if (!input) {
-      setOutput('')
-      return
+      setOutput("");
+      return;
     }
     try {
-      const decoded = decodeURIComponent(input)
-      setOutput(decoded)
+      const decoded = decodeURIComponent(input);
+      setOutput(decoded);
     } catch (err) {
-      setOutput('Error decoding URL')
+      setOutput("Error decoding URL");
     }
-  }
+  };
 
   const handleProcess = () => {
-    if (mode === 'encode') {
-      handleEncode()
+    if (mode === "encode") {
+      handleEncode();
     } else {
-      handleDecode()
+      handleDecode();
     }
-  }
+  };
 
   const handleCopy = async () => {
-    if (!output) return
+    if (!output) return;
     try {
-      await copyToClipboard(output)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await copyToClipboard(output);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err)
+      console.error("Failed to copy:", err);
     }
-  }
+  };
 
   const parseQueryString = (url: string) => {
     try {
-      const urlObj = new URL(url)
-      const params: Record<string, string> = {}
+      const urlObj = new URL(url);
+      const params: Record<string, string> = {};
       urlObj.searchParams.forEach((value, key) => {
-        params[key] = value
-      })
-      return params
+        params[key] = value;
+      });
+      return params;
     } catch {
-      return null
+      return null;
     }
-  }
+  };
 
-  const queryParams = mode === 'decode' && output ? parseQueryString(output) : null
+  const queryParams = mode === "decode" && output ? parseQueryString(output) : null;
 
   return (
     <div className="space-y-6">
       {/* Mode Toggle */}
       <div className="flex gap-2 p-1 bg-gray-100 dark:bg-gray-900 rounded-lg w-fit">
         <button
-          onClick={() => { setMode('encode'); setInput(''); setOutput('') }}
+          onClick={() => { setMode("encode"); setInput(""); setOutput(""); }}
           className={`px-6 py-2 rounded-lg font-medium transition-colors ${
-            mode === 'encode'
-              ? 'bg-white dark:bg-gray-800 shadow'
-              : 'hover:bg-gray-200 dark:hover:bg-gray-800'
+            mode === "encode"
+              ? "bg-white dark:bg-gray-800 shadow"
+              : "hover:bg-gray-200 dark:hover:bg-gray-800"
           }`}
         >
           Encode
         </button>
         <button
-          onClick={() => { setMode('decode'); setInput(''); setOutput('') }}
+          onClick={() => { setMode("decode"); setInput(""); setOutput(""); }}
           className={`px-6 py-2 rounded-lg font-medium transition-colors ${
-            mode === 'decode'
-              ? 'bg-white dark:bg-gray-800 shadow'
-              : 'hover:bg-gray-200 dark:hover:bg-gray-800'
+            mode === "decode"
+              ? "bg-white dark:bg-gray-800 shadow"
+              : "hover:bg-gray-200 dark:hover:bg-gray-800"
           }`}
         >
           Decode
@@ -99,15 +99,15 @@ export function URLTool() {
       {/* Input */}
       <div className="space-y-2">
         <label className="block text-sm font-medium dark:text-white">
-          {mode === 'encode' ? 'Text/URL to Encode' : 'URL to Decode'}
+          {mode === "encode" ? "Text/URL to Encode" : "URL to Decode"}
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={
-            mode === 'encode'
-              ? 'Enter text or URL...'
-              : 'Enter encoded URL...'
+            mode === "encode"
+              ? "Enter text or URL..."
+              : "Enter encoded URL..."
           }
           rows={6}
           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
@@ -120,10 +120,10 @@ export function URLTool() {
           onClick={handleProcess}
           className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
         >
-          {mode === 'encode' ? 'Encode' : 'Decode'}
+          {mode === "encode" ? "Encode" : "Decode"}
         </button>
         <button
-          onClick={() => { setInput(''); setOutput('') }}
+          onClick={() => { setInput(""); setOutput(""); }}
           className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium"
         >
           Clear
@@ -196,5 +196,5 @@ export function URLTool() {
         </div>
       </div>
     </div>
-  )
+  );
 }

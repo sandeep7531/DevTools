@@ -1,74 +1,74 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { format } from 'date-fns'
-import { Clock, Calendar } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { format } from "date-fns";
+import { Clock, Calendar } from "lucide-react";
 
 export function TimestampConverter() {
-  const [timestamp, setTimestamp] = useState('')
-  const [datetime, setDatetime] = useState('')
-  const [currentTime, setCurrentTime] = useState(Date.now())
+  const [timestamp, setTimestamp] = useState("");
+  const [datetime, setDatetime] = useState("");
+  const [currentTime, setCurrentTime] = useState(Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(Date.now())
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentTime(Date.now());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleTimestampChange = (value: string) => {
-    setTimestamp(value)
+    setTimestamp(value);
     if (!value) {
-      setDatetime('')
-      return
+      setDatetime("");
+      return;
     }
 
-    const num = parseInt(value)
+    const num = parseInt(value);
     if (isNaN(num)) {
-      setDatetime('Invalid timestamp')
-      return
+      setDatetime("Invalid timestamp");
+      return;
     }
 
     try {
       // Handle both seconds and milliseconds
-      const date = num > 10000000000 ? new Date(num) : new Date(num * 1000)
-      setDatetime(format(date, 'yyyy-MM-dd HH:mm:ss'))
+      const date = num > 10000000000 ? new Date(num) : new Date(num * 1000);
+      setDatetime(format(date, "yyyy-MM-dd HH:mm:ss"));
     } catch {
-      setDatetime('Invalid timestamp')
+      setDatetime("Invalid timestamp");
     }
-  }
+  };
 
   const handleDatetimeChange = (value: string) => {
-    setDatetime(value)
+    setDatetime(value);
     if (!value) {
-      setTimestamp('')
-      return
+      setTimestamp("");
+      return;
     }
 
     try {
-      const date = new Date(value)
+      const date = new Date(value);
       if (isNaN(date.getTime())) {
-        setTimestamp('Invalid date')
-        return
+        setTimestamp("Invalid date");
+        return;
       }
-      setTimestamp(Math.floor(date.getTime() / 1000).toString())
+      setTimestamp(Math.floor(date.getTime() / 1000).toString());
     } catch {
-      setTimestamp('Invalid date')
+      setTimestamp("Invalid date");
     }
-  }
+  };
 
   const setToNow = () => {
-    const now = Date.now()
-    setTimestamp(Math.floor(now / 1000).toString())
-    setDatetime(format(now, 'yyyy-MM-dd HH:mm:ss'))
-  }
+    const now = Date.now();
+    setTimestamp(Math.floor(now / 1000).toString());
+    setDatetime(format(now, "yyyy-MM-dd HH:mm:ss"));
+  };
 
   const commonTimestamps = [
-    { label: 'Start of Unix Epoch', timestamp: 0, date: '1970-01-01 00:00:00' },
-    { label: 'Y2K', timestamp: 946684800, date: '2000-01-01 00:00:00' },
-    { label: 'Start of 2020', timestamp: 1577836800, date: '2020-01-01 00:00:00' },
-    { label: 'Start of 2025', timestamp: 1735689600, date: '2025-01-01 00:00:00' },
-  ]
+    { label: "Start of Unix Epoch", timestamp: 0, date: "1970-01-01 00:00:00" },
+    { label: "Y2K", timestamp: 946684800, date: "2000-01-01 00:00:00" },
+    { label: "Start of 2020", timestamp: 1577836800, date: "2020-01-01 00:00:00" },
+    { label: "Start of 2025", timestamp: 1735689600, date: "2025-01-01 00:00:00" },
+  ];
 
   return (
     <div className="space-y-8">
@@ -88,7 +88,7 @@ export function TimestampConverter() {
           <div>
             <div className="text-sm opacity-80 mb-1">Human Readable</div>
             <div className="text-xl font-mono">
-              {format(currentTime, 'yyyy-MM-dd HH:mm:ss')}
+              {format(currentTime, "yyyy-MM-dd HH:mm:ss")}
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ export function TimestampConverter() {
           <div className="space-y-2">
             <label className="block text-sm font-medium dark:text-white">Human Readable Date</label>
             <div className="px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 font-mono">
-              {datetime || 'Enter a timestamp'}
+              {datetime || "Enter a timestamp"}
             </div>
           </div>
         </div>
@@ -136,15 +136,15 @@ export function TimestampConverter() {
             <label className="block text-sm font-medium dark:text-white">Date & Time</label>
             <input
               type="datetime-local"
-              value={datetime.replace(' ', 'T')}
-              onChange={(e) => handleDatetimeChange(e.target.value.replace('T', ' '))}
+              value={datetime.replace(" ", "T")}
+              onChange={(e) => handleDatetimeChange(e.target.value.replace("T", " "))}
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div className="space-y-2">
             <label className="block text-sm font-medium dark:text-white">Unix Timestamp</label>
             <div className="px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 font-mono">
-              {timestamp || 'Select a date'}
+              {timestamp || "Select a date"}
             </div>
           </div>
         </div>
@@ -158,8 +158,8 @@ export function TimestampConverter() {
             <button
               key={item.label}
               onClick={() => {
-                setTimestamp(item.timestamp.toString())
-                setDatetime(item.date)
+                setTimestamp(item.timestamp.toString());
+                setDatetime(item.date);
               }}
               className="text-left p-4 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
             >
@@ -181,5 +181,5 @@ export function TimestampConverter() {
         </p>
       </div>
     </div>
-  )
+  );
 }

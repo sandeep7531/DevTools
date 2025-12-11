@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import Script from 'next/script'
+import Script from "next/script";
 
 export function Analytics() {
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   if (!GA_MEASUREMENT_ID) {
-    return null
+    return null;
   }
 
   return (
@@ -24,5 +24,5 @@ export function Analytics() {
         `}
       </Script>
     </>
-  )
+  );
 }

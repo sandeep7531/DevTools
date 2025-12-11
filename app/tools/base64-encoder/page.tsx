@@ -1,11 +1,11 @@
-import { Metadata } from 'next'
-import { Base64Tool } from '@/components/tools/Base64Tool'
+import { Metadata } from "next";
+import { Base64Tool } from "@/components/tools/Base64Tool";
 
 export const metadata: Metadata = {
-  title: 'Base64 Encoder & Decoder - Free Online Tool',
-  description: 'Encode and decode Base64 strings instantly. Supports text and file encoding. Free, fast, and secure.',
-  keywords: ['base64 encoder', 'base64 decoder', 'base64 converter', 'encode base64', 'decode base64'],
-}
+  title: "Base64 Encoder & Decoder - Free Online Tool",
+  description: "Encode and decode Base64 strings instantly. Supports text and file encoding. Free, fast, and secure.",
+  keywords: ["base64 encoder", "base64 decoder", "base64 converter", "encode base64", "decode base64"],
+};
 
 export default function Base64Page() {
   return (
@@ -18,5 +18,5 @@ export default function Base64Page() {
       </div>
       <Base64Tool />
     </div>
-  )
+  );
 }

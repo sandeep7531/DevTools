@@ -1,98 +1,98 @@
-'use client'
+"use client";
 
-import { useState, useMemo } from 'react'
-import { AlertCircle, Check, Copy } from 'lucide-react'
-import { copyToClipboard } from '@/lib/utils'
+import { useState, useMemo } from "react";
+import { AlertCircle, Check, Copy } from "lucide-react";
+import { copyToClipboard } from "@/lib/utils";
 
 const commonPatterns = [
-  { name: 'Email', pattern: '^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$', flags: '' },
-  { name: 'URL', pattern: 'https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b', flags: 'g' },
-  { name: 'Phone (US)', pattern: '^(\\+1)?[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$', flags: '' },
-  { name: 'Date (YYYY-MM-DD)', pattern: '^\\d{4}-\\d{2}-\\d{2}$', flags: '' },
-  { name: 'IP Address', pattern: '^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$', flags: '' },
-  { name: 'Hex Color', pattern: '^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$', flags: '' },
-]
+  { name: "Email", pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", flags: "" },
+  { name: "URL", pattern: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b", flags: "g" },
+  { name: "Phone (US)", pattern: "^(\\+1)?[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$", flags: "" },
+  { name: "Date (YYYY-MM-DD)", pattern: "^\\d{4}-\\d{2}-\\d{2}$", flags: "" },
+  { name: "IP Address", pattern: "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$", flags: "" },
+  { name: "Hex Color", pattern: "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", flags: "" },
+];
 
 export function RegexTester() {
-  const [pattern, setPattern] = useState('')
-  const [flags, setFlags] = useState({ g: true, i: false, m: false })
-  const [testString, setTestString] = useState('')
-  const [error, setError] = useState('')
-  const [copied, setCopied] = useState(false)
+  const [pattern, setPattern] = useState("");
+  const [flags, setFlags] = useState({ g: true, i: false, m: false });
+  const [testString, setTestString] = useState("");
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const regex = useMemo(() => {
-    if (!pattern) return null
+    if (!pattern) return null;
     try {
       const flagStr = Object.entries(flags)
         .filter(([_, enabled]) => enabled)
         .map(([flag]) => flag)
-        .join('')
-      return new RegExp(pattern, flagStr)
+        .join("");
+      return new RegExp(pattern, flagStr);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Invalid regex')
-      return null
+      setError(err instanceof Error ? err.message : "Invalid regex");
+      return null;
     }
-  }, [pattern, flags])
+  }, [pattern, flags]);
 
   const matches = useMemo(() => {
-    if (!regex || !testString) return []
-    setError('')
+    if (!regex || !testString) return [];
+    setError("");
     try {
-      const matches = Array.from(testString.matchAll(regex))
+      const matches = Array.from(testString.matchAll(regex));
       return matches.map((match, i) => ({
         index: i,
         match: match[0],
         position: match.index,
         groups: match.slice(1),
-      }))
+      }));
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error matching')
-      return []
+      setError(err instanceof Error ? err.message : "Error matching");
+      return [];
     }
-  }, [regex, testString])
+  }, [regex, testString]);
 
   const highlightedText = useMemo(() => {
-    if (!testString) return []
-    if (matches.length === 0) return [{ text: testString, matched: false }]
+    if (!testString) return [];
+    if (matches.length === 0) return [{ text: testString, matched: false }];
 
-    const parts: { text: string; matched: boolean }[] = []
-    let lastIndex = 0
+    const parts: { text: string; matched: boolean }[] = [];
+    let lastIndex = 0;
 
     matches.forEach((match) => {
       if (match.position !== undefined && match.position > lastIndex) {
-        parts.push({ text: testString.slice(lastIndex, match.position), matched: false })
+        parts.push({ text: testString.slice(lastIndex, match.position), matched: false });
       }
-      parts.push({ text: match.match, matched: true })
-      lastIndex = (match.position || 0) + match.match.length
-    })
+      parts.push({ text: match.match, matched: true });
+      lastIndex = (match.position || 0) + match.match.length;
+    });
 
     if (lastIndex < testString.length) {
-      parts.push({ text: testString.slice(lastIndex), matched: false })
+      parts.push({ text: testString.slice(lastIndex), matched: false });
     }
 
-    return parts
-  }, [testString, matches])
+    return parts;
+  }, [testString, matches]);
 
   const handleCopyPattern = async () => {
-    if (!pattern) return
+    if (!pattern) return;
     try {
       const flagStr = Object.entries(flags)
         .filter(([_, enabled]) => enabled)
         .map(([flag]) => flag)
-        .join('')
-      await copyToClipboard(`/${pattern}/${flagStr}`)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+        .join("");
+      await copyToClipboard(`/${pattern}/${flagStr}`);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err)
+      console.error("Failed to copy:", err);
     }
-  }
+  };
 
   const loadPattern = (p: typeof commonPatterns[0]) => {
-    setPattern(p.pattern)
-    setFlags({ g: p.flags.includes('g'), i: p.flags.includes('i'), m: p.flags.includes('m') })
-    setError('')
-  }
+    setPattern(p.pattern);
+    setFlags({ g: p.flags.includes("g"), i: p.flags.includes("i"), m: p.flags.includes("m") });
+    setError("");
+  };
 
   return (
     <div className="space-y-6">
@@ -191,7 +191,7 @@ export function RegexTester() {
               highlightedText.map((part, i) => (
                 <span
                   key={i}
-                  className={part.matched ? 'bg-yellow-200 dark:bg-yellow-600 text-gray-900 dark:text-white' : ''}
+                  className={part.matched ? "bg-yellow-200 dark:bg-yellow-600 text-gray-900 dark:text-white" : ""}
                 >
                   {part.text}
                 </span>
@@ -219,7 +219,7 @@ export function RegexTester() {
                 </div>
                 {match.groups.length > 0 && (
                   <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                    Groups: {match.groups.map((g, i) => `$${i + 1}: "${g}"`).join(', ')}
+                    Groups: {match.groups.map((g, i) => `$${i + 1}: "${g}"`).join(", ")}
                   </div>
                 )}
               </div>
@@ -247,5 +247,5 @@ export function RegexTester() {
         </div>
       </div>
     </div>
-  )
+  );
 }

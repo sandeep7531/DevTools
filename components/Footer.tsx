@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import { Github, Twitter, Heart } from 'lucide-react'
+import Link from "next/link";
+import { Github, Twitter, Heart } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 mt-20">
@@ -97,5 +97,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

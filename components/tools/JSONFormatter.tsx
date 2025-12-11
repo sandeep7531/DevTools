@@ -1,88 +1,88 @@
-'use client'
+"use client";
 
-import { useState, useCallback, useEffect } from 'react'
-import Editor from '@monaco-editor/react'
-import { Copy, Download, Check, AlertCircle, Minimize2, Maximize2 } from 'lucide-react'
-import { copyToClipboard, downloadFile } from '@/lib/utils'
-import { useTheme } from '../ThemeProvider'
+import { useState, useCallback, useEffect } from "react";
+import Editor from "@monaco-editor/react";
+import { Copy, Download, Check, AlertCircle, Minimize2, Maximize2 } from "lucide-react";
+import { copyToClipboard, downloadFile } from "@/lib/utils";
+import { useTheme } from "../ThemeProvider";
 
 export function JSONFormatter() {
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
-  const [error, setError] = useState('')
-  const [copied, setCopied] = useState(false)
-  const [indentSize, setIndentSize] = useState(2)
-  const { theme } = useTheme()
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [indentSize, setIndentSize] = useState(2);
+  const { theme } = useTheme();
 
   const formatJSON = useCallback(() => {
-    setError('')
+    setError("");
     if (!input.trim()) {
-      setOutput('')
-      setError('Please enter JSON to format')
-      return
+      setOutput("");
+      setError("Please enter JSON to format");
+      return;
     }
 
     try {
-      const parsed = JSON.parse(input)
-      const formatted = JSON.stringify(parsed, null, indentSize)
-      setOutput(formatted)
+      const parsed = JSON.parse(input);
+      const formatted = JSON.stringify(parsed, null, indentSize);
+      setOutput(formatted);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Invalid JSON')
-      setOutput('')
+      setError(err instanceof Error ? err.message : "Invalid JSON");
+      setOutput("");
     }
-  }, [input, indentSize])
+  }, [input, indentSize]);
 
   const minifyJSON = useCallback(() => {
-    setError('')
+    setError("");
     if (!input.trim()) {
-      setOutput('')
-      setError('Please enter JSON to minify')
-      return
+      setOutput("");
+      setError("Please enter JSON to minify");
+      return;
     }
 
     try {
-      const parsed = JSON.parse(input)
-      const minified = JSON.stringify(parsed)
-      setOutput(minified)
+      const parsed = JSON.parse(input);
+      const minified = JSON.stringify(parsed);
+      setOutput(minified);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Invalid JSON')
-      setOutput('')
+      setError(err instanceof Error ? err.message : "Invalid JSON");
+      setOutput("");
     }
-  }, [input])
+  }, [input]);
 
   const handleCopy = async () => {
-    if (!output) return
+    if (!output) return;
     try {
-      await copyToClipboard(output)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await copyToClipboard(output);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err)
+      console.error("Failed to copy:", err);
     }
-  }
+  };
 
   const handleDownload = () => {
-    if (!output) return
-    downloadFile(output, 'formatted.json', 'application/json')
-  }
+    if (!output) return;
+    downloadFile(output, "formatted.json", "application/json");
+  };
 
   const handleClear = () => {
-    setInput('')
-    setOutput('')
-    setError('')
-  }
+    setInput("");
+    setOutput("");
+    setError("");
+  };
 
   // Keyboard shortcut: Ctrl/Cmd + Enter to format
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        e.preventDefault()
-        formatJSON()
+      if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+        e.preventDefault();
+        formatJSON();
       }
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [formatJSON])
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [formatJSON]);
 
   return (
     <div className="space-y-6">
@@ -171,14 +171,14 @@ export function JSONFormatter() {
               height="500px"
               defaultLanguage="json"
               value={input}
-              onChange={(value) => setInput(value || '')}
-              theme={theme === 'dark' ? 'vs-dark' : 'light'}
+              onChange={(value) => setInput(value || "")}
+              theme={theme === "dark" ? "vs-dark" : "light"}
               options={{
                 minimap: { enabled: false },
                 fontSize: 14,
-                lineNumbers: 'on',
+                lineNumbers: "on",
                 scrollBeyondLastLine: false,
-                wordWrap: 'on',
+                wordWrap: "on",
                 automaticLayout: true,
               }}
             />
@@ -196,14 +196,14 @@ export function JSONFormatter() {
               height="500px"
               defaultLanguage="json"
               value={output}
-              theme={theme === 'dark' ? 'vs-dark' : 'light'}
+              theme={theme === "dark" ? "vs-dark" : "light"}
               options={{
                 readOnly: true,
                 minimap: { enabled: false },
                 fontSize: 14,
-                lineNumbers: 'on',
+                lineNumbers: "on",
                 scrollBeyondLastLine: false,
-                wordWrap: 'on',
+                wordWrap: "on",
                 automaticLayout: true,
               }}
             />
@@ -216,13 +216,13 @@ export function JSONFormatter() {
         <h3 className="font-semibold mb-4 dark:text-white">Quick Examples</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <button
-            onClick={() => setInput('{"name":"John","age":30,"city":"New York"}')}
+            onClick={() => setInput("{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}")}
             className="text-left p-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
           >
             <code className="text-sm text-gray-700 dark:text-gray-300">Simple Object</code>
           </button>
           <button
-            onClick={() => setInput('[{"id":1,"name":"Item 1"},{"id":2,"name":"Item 2"}]')}
+            onClick={() => setInput("[{\"id\":1,\"name\":\"Item 1\"},{\"id\":2,\"name\":\"Item 2\"}]")}
             className="text-left p-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
           >
             <code className="text-sm text-gray-700 dark:text-gray-300">Array of Objects</code>
@@ -230,5 +230,5 @@ export function JSONFormatter() {
         </div>
       </div>
     </div>
-  )
+  );
 }

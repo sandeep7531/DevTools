@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { Moon, Sun, Code2 } from 'lucide-react'
-import { useTheme } from './ThemeProvider'
+import Link from "next/link";
+import { Moon, Sun, Code2 } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
 
 export function Header() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm">
@@ -33,7 +33,7 @@ export function Header() {
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <Sun className="w-5 h-5 text-yellow-500" />
             ) : (
               <Moon className="w-5 h-5 text-gray-700" />
@@ -42,5 +42,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }

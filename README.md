@@ -72,7 +72,6 @@ npm start
    ```bash
    npm install -g vercel
    ```
-`₹₹₹₹
 2. **Login to Vercel:**
    ```bash
    vercel login

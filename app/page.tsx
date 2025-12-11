@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 import { 
   Code2, 
   Regex, 
@@ -9,76 +9,76 @@ import {
   Sparkles,
   Zap,
   Shield
-} from 'lucide-react'
+} from "lucide-react";
 
 const tools = [
   {
-    name: 'JSON Formatter',
-    description: 'Format, validate, and beautify JSON with syntax highlighting',
+    name: "JSON Formatter",
+    description: "Format, validate, and beautify JSON with syntax highlighting",
     icon: Code2,
-    href: '/tools/json-formatter',
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-500/10',
+    href: "/tools/json-formatter",
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
   },
   {
-    name: 'Regex Tester',
-    description: 'Test regular expressions with real-time matching and explanations',
+    name: "Regex Tester",
+    description: "Test regular expressions with real-time matching and explanations",
     icon: Regex,
-    href: '/tools/regex-tester',
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-500/10',
+    href: "/tools/regex-tester",
+    color: "text-purple-500",
+    bgColor: "bg-purple-500/10",
   },
   {
-    name: 'Base64 Encoder',
-    description: 'Encode and decode Base64 strings instantly',
+    name: "Base64 Encoder",
+    description: "Encode and decode Base64 strings instantly",
     icon: FileCode,
-    href: '/tools/base64-encoder',
-    color: 'text-green-500',
-    bgColor: 'bg-green-500/10',
+    href: "/tools/base64-encoder",
+    color: "text-green-500",
+    bgColor: "bg-green-500/10",
   },
   {
-    name: 'JWT Decoder',
-    description: 'Decode and inspect JWT tokens with payload visualization',
+    name: "JWT Decoder",
+    description: "Decode and inspect JWT tokens with payload visualization",
     icon: Key,
-    href: '/tools/jwt-decoder',
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-500/10',
+    href: "/tools/jwt-decoder",
+    color: "text-orange-500",
+    bgColor: "bg-orange-500/10",
   },
   {
-    name: 'URL Encoder',
-    description: 'Encode and decode URLs with support for query parameters',
+    name: "URL Encoder",
+    description: "Encode and decode URLs with support for query parameters",
     icon: Link2,
-    href: '/tools/url-encoder',
-    color: 'text-pink-500',
-    bgColor: 'bg-pink-500/10',
+    href: "/tools/url-encoder",
+    color: "text-pink-500",
+    bgColor: "bg-pink-500/10",
   },
   {
-    name: 'Timestamp Converter',
-    description: 'Convert between Unix timestamps and human-readable dates',
+    name: "Timestamp Converter",
+    description: "Convert between Unix timestamps and human-readable dates",
     icon: Clock,
-    href: '/tools/timestamp-converter',
-    color: 'text-cyan-500',
-    bgColor: 'bg-cyan-500/10',
+    href: "/tools/timestamp-converter",
+    color: "text-cyan-500",
+    bgColor: "bg-cyan-500/10",
   },
-]
+];
 
 const features = [
   {
     icon: Zap,
-    title: 'Lightning Fast',
-    description: 'All processing happens in your browser. No server delays.',
+    title: "Lightning Fast",
+    description: "All processing happens in your browser. No server delays.",
   },
   {
     icon: Shield,
-    title: 'Privacy First',
-    description: 'Your data never leaves your device. 100% client-side processing.',
+    title: "Privacy First",
+    description: "Your data never leaves your device. 100% client-side processing.",
   },
   {
     icon: Sparkles,
-    title: 'Modern UX',
-    description: 'Beautiful dark mode, keyboard shortcuts, and offline support.',
+    title: "Modern UX",
+    description: "Beautiful dark mode, keyboard shortcuts, and offline support.",
   },
-]
+];
 
 export default function HomePage() {
   return (
@@ -133,5 +133,5 @@ export default function HomePage() {
         </p>
       </div>
     </div>
-  )
+  );
 }

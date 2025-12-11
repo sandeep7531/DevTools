@@ -1,88 +1,88 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Copy, Download, Check } from 'lucide-react'
-import { copyToClipboard, downloadFile } from '@/lib/utils'
+import { useState } from "react";
+import { Copy, Download, Check } from "lucide-react";
+import { copyToClipboard, downloadFile } from "@/lib/utils";
 
 export function Base64Tool() {
-  const [mode, setMode] = useState<'encode' | 'decode'>('encode')
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
-  const [error, setError] = useState('')
-  const [copied, setCopied] = useState(false)
+  const [mode, setMode] = useState<"encode" | "decode">("encode");
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const handleEncode = () => {
-    setError('')
+    setError("");
     if (!input) {
-      setOutput('')
-      return
+      setOutput("");
+      return;
     }
     try {
-      const encoded = btoa(input)
-      setOutput(encoded)
+      const encoded = btoa(input);
+      setOutput(encoded);
     } catch (err) {
-      setError('Error encoding: ' + (err instanceof Error ? err.message : 'Unknown error'))
+      setError("Error encoding: " + (err instanceof Error ? err.message : "Unknown error"));
     }
-  }
+  };
 
   const handleDecode = () => {
-    setError('')
+    setError("");
     if (!input) {
-      setOutput('')
-      return
+      setOutput("");
+      return;
     }
     try {
-      const decoded = atob(input)
-      setOutput(decoded)
+      const decoded = atob(input);
+      setOutput(decoded);
     } catch (err) {
-      setError('Invalid Base64 string')
+      setError("Invalid Base64 string");
     }
-  }
+  };
 
   const handleProcess = () => {
-    if (mode === 'encode') {
-      handleEncode()
+    if (mode === "encode") {
+      handleEncode();
     } else {
-      handleDecode()
+      handleDecode();
     }
-  }
+  };
 
   const handleCopy = async () => {
-    if (!output) return
+    if (!output) return;
     try {
-      await copyToClipboard(output)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await copyToClipboard(output);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err)
+      console.error("Failed to copy:", err);
     }
-  }
+  };
 
   const handleDownload = () => {
-    if (!output) return
-    downloadFile(output, `${mode}d.txt`, 'text/plain')
-  }
+    if (!output) return;
+    downloadFile(output, `${mode}d.txt`, "text/plain");
+  };
 
   return (
     <div className="space-y-6">
       {/* Mode Toggle */}
       <div className="flex gap-2 p-1 bg-gray-100 dark:bg-gray-900 rounded-lg w-fit">
         <button
-          onClick={() => { setMode('encode'); setInput(''); setOutput(''); setError('') }}
+          onClick={() => { setMode("encode"); setInput(""); setOutput(""); setError(""); }}
           className={`px-6 py-2 rounded-lg font-medium transition-colors ${
-            mode === 'encode'
-              ? 'bg-white dark:bg-gray-800 shadow'
-              : 'hover:bg-gray-200 dark:hover:bg-gray-800'
+            mode === "encode"
+              ? "bg-white dark:bg-gray-800 shadow"
+              : "hover:bg-gray-200 dark:hover:bg-gray-800"
           }`}
         >
           Encode
         </button>
         <button
-          onClick={() => { setMode('decode'); setInput(''); setOutput(''); setError('') }}
+          onClick={() => { setMode("decode"); setInput(""); setOutput(""); setError(""); }}
           className={`px-6 py-2 rounded-lg font-medium transition-colors ${
-            mode === 'decode'
-              ? 'bg-white dark:bg-gray-800 shadow'
-              : 'hover:bg-gray-200 dark:hover:bg-gray-800'
+            mode === "decode"
+              ? "bg-white dark:bg-gray-800 shadow"
+              : "hover:bg-gray-200 dark:hover:bg-gray-800"
           }`}
         >
           Decode
@@ -92,12 +92,12 @@ export function Base64Tool() {
       {/* Input */}
       <div className="space-y-2">
         <label className="block text-sm font-medium dark:text-white">
-          {mode === 'encode' ? 'Text to Encode' : 'Base64 to Decode'}
+          {mode === "encode" ? "Text to Encode" : "Base64 to Decode"}
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={mode === 'encode' ? 'Enter text...' : 'Enter Base64 string...'}
+          placeholder={mode === "encode" ? "Enter text..." : "Enter Base64 string..."}
           rows={8}
           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
         />
@@ -109,10 +109,10 @@ export function Base64Tool() {
           onClick={handleProcess}
           className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
         >
-          {mode === 'encode' ? 'Encode' : 'Decode'}
+          {mode === "encode" ? "Encode" : "Decode"}
         </button>
         <button
-          onClick={() => { setInput(''); setOutput(''); setError('') }}
+          onClick={() => { setInput(""); setOutput(""); setError(""); }}
           className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium"
         >
           Clear
@@ -170,5 +170,5 @@ export function Base64Tool() {
         </p>
       </div>
     </div>
-  )
+  );
 }

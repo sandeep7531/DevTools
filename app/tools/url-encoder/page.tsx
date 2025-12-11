@@ -1,11 +1,11 @@
-import { Metadata } from 'next'
-import { URLTool } from '@/components/tools/URLTool'
+import { Metadata } from "next";
+import { URLTool } from "@/components/tools/URLTool";
 
 export const metadata: Metadata = {
-  title: 'URL Encoder & Decoder - Free Online Tool',
-  description: 'Encode and decode URLs with support for query parameters. Free URL encoder tool.',
-  keywords: ['url encoder', 'url decoder', 'urlencode', 'urldecode', 'percent encoding'],
-}
+  title: "URL Encoder & Decoder - Free Online Tool",
+  description: "Encode and decode URLs with support for query parameters. Free URL encoder tool.",
+  keywords: ["url encoder", "url decoder", "urlencode", "urldecode", "percent encoding"],
+};
 
 export default function URLEncoderPage() {
   return (
@@ -18,5 +18,5 @@ export default function URLEncoderPage() {
       </div>
       <URLTool />
     </div>
-  )
+  );
 }

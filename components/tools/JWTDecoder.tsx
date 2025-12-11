@@ -1,49 +1,49 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { jwtDecode } from 'jwt-decode'
-import { AlertCircle, Info } from 'lucide-react'
+import { useState } from "react";
+import { jwtDecode } from "jwt-decode";
+import { AlertCircle, Info } from "lucide-react";
 
 export function JWTDecoder() {
-  const [token, setToken] = useState('')
-  const [decoded, setDecoded] = useState<{ header: any; payload: any } | null>(null)
-  const [error, setError] = useState('')
+  const [token, setToken] = useState("");
+  const [decoded, setDecoded] = useState<{ header: any; payload: any } | null>(null);
+  const [error, setError] = useState("");
 
   const handleDecode = (value: string) => {
-    setToken(value)
-    setError('')
+    setToken(value);
+    setError("");
     
     if (!value.trim()) {
-      setDecoded(null)
-      return
+      setDecoded(null);
+      return;
     }
 
     try {
-      const parts = value.split('.')
+      const parts = value.split(".");
       if (parts.length !== 3) {
-        throw new Error('Invalid JWT format. JWT should have 3 parts separated by dots.')
+        throw new Error("Invalid JWT format. JWT should have 3 parts separated by dots.");
       }
 
       // Decode header
-      const header = JSON.parse(atob(parts[0]))
+      const header = JSON.parse(atob(parts[0]));
       
       // Decode payload using jwt-decode
-      const payload = jwtDecode(value)
+      const payload = jwtDecode(value);
 
-      setDecoded({ header, payload })
+      setDecoded({ header, payload });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Invalid JWT token')
-      setDecoded(null)
+      setError(err instanceof Error ? err.message : "Invalid JWT token");
+      setDecoded(null);
     }
-  }
+  };
 
   const formatJSON = (obj: any) => {
-    return JSON.stringify(obj, null, 2)
-  }
+    return JSON.stringify(obj, null, 2);
+  };
 
   const formatTimestamp = (timestamp: number) => {
-    return new Date(timestamp * 1000).toLocaleString()
-  }
+    return new Date(timestamp * 1000).toLocaleString();
+  };
 
   return (
     <div className="space-y-6">
@@ -103,9 +103,9 @@ export function JWTDecoder() {
                   {key}
                 </div>
                 <div className="font-mono text-sm break-all dark:text-white">
-                  {key === 'exp' || key === 'iat' || key === 'nbf'
+                  {key === "exp" || key === "iat" || key === "nbf"
                     ? `${value} (${formatTimestamp(value)})`
-                    : typeof value === 'object'
+                    : typeof value === "object"
                     ? JSON.stringify(value)
                     : String(value)}
                 </div>
@@ -129,5 +129,5 @@ export function JWTDecoder() {
         </div>
       </div>
     </div>
-  )
+  );
 }

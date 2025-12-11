@@ -1,11 +1,11 @@
-import { Metadata } from 'next'
-import { JWTDecoder } from '@/components/tools/JWTDecoder'
+import { Metadata } from "next";
+import { JWTDecoder } from "@/components/tools/JWTDecoder";
 
 export const metadata: Metadata = {
-  title: 'JWT Decoder - Decode JSON Web Tokens Online',
-  description: 'Decode and inspect JWT tokens with payload visualization. Free JWT decoder tool.',
-  keywords: ['jwt decoder', 'json web token', 'jwt parser', 'decode jwt', 'jwt validator'],
-}
+  title: "JWT Decoder - Decode JSON Web Tokens Online",
+  description: "Decode and inspect JWT tokens with payload visualization. Free JWT decoder tool.",
+  keywords: ["jwt decoder", "json web token", "jwt parser", "decode jwt", "jwt validator"],
+};
 
 export default function JWTDecoderPage() {
   return (
@@ -18,5 +18,5 @@ export default function JWTDecoderPage() {
       </div>
       <JWTDecoder />
     </div>
-  )
+  );
 }

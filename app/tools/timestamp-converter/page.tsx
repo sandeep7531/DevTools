@@ -1,11 +1,11 @@
-import { Metadata } from 'next'
-import { TimestampConverter } from '@/components/tools/TimestampConverter'
+import { Metadata } from "next";
+import { TimestampConverter } from "@/components/tools/TimestampConverter";
 
 export const metadata: Metadata = {
-  title: 'Unix Timestamp Converter - Convert Timestamps Online',
-  description: 'Convert between Unix timestamps and human-readable dates. Free timestamp converter tool.',
-  keywords: ['timestamp converter', 'unix timestamp', 'epoch converter', 'date to timestamp', 'timestamp to date'],
-}
+  title: "Unix Timestamp Converter - Convert Timestamps Online",
+  description: "Convert between Unix timestamps and human-readable dates. Free timestamp converter tool.",
+  keywords: ["timestamp converter", "unix timestamp", "epoch converter", "date to timestamp", "timestamp to date"],
+};
 
 export default function TimestampPage() {
   return (
@@ -18,5 +18,5 @@ export default function TimestampPage() {
       </div>
       <TimestampConverter />
     </div>
-  )
+  );
 }

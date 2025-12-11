@@ -1,36 +1,36 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Analytics } from '@/components/Analytics'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Analytics } from "@/components/Analytics";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dev-toolbox.vercel.app'),
+  metadataBase: new URL("https://dev-toolbox.vercel.app"),
   title: {
-    default: 'DevToolbox - Free Developer Tools & Utilities',
-    template: '%s | DevToolbox'
+    default: "DevToolbox - Free Developer Tools & Utilities",
+    template: "%s | DevToolbox"
   },
-  description: 'Free, fast, and privacy-focused developer tools. JSON formatter, Regex tester, Base64 encoder, JWT decoder, and more. All processing happens in your browser.',
-  keywords: ['developer tools', 'json formatter', 'regex tester', 'base64 encoder', 'jwt decoder', 'url encoder', 'timestamp converter', 'developer utilities'],
-  authors: [{ name: 'DevToolbox' }],
-  creator: 'DevToolbox',
-  publisher: 'DevToolbox',
+  description: "Free, fast, and privacy-focused developer tools. JSON formatter, Regex tester, Base64 encoder, JWT decoder, and more. All processing happens in your browser.",
+  keywords: ["developer tools", "json formatter", "regex tester", "base64 encoder", "jwt decoder", "url encoder", "timestamp converter", "developer utilities"],
+  authors: [{ name: "DevToolbox" }],
+  creator: "DevToolbox",
+  publisher: "DevToolbox",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://dev-toolbox.vercel.app',
-    title: 'DevToolbox - Free Developer Tools & Utilities',
-    description: 'Free, fast, and privacy-focused developer tools. All processing happens in your browser.',
-    siteName: 'DevToolbox',
+    type: "website",
+    locale: "en_US",
+    url: "https://dev-toolbox.vercel.app",
+    title: "DevToolbox - Free Developer Tools & Utilities",
+    description: "Free, fast, and privacy-focused developer tools. All processing happens in your browser.",
+    siteName: "DevToolbox",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'DevToolbox - Free Developer Tools & Utilities',
-    description: 'Free, fast, and privacy-focused developer tools.',
+    card: "summary_large_image",
+    title: "DevToolbox - Free Developer Tools & Utilities",
+    description: "Free, fast, and privacy-focused developer tools.",
   },
   robots: {
     index: true,
@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -65,5 +65,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-import { Metadata } from 'next'
-import { JSONFormatter } from '@/components/tools/JSONFormatter'
+import { Metadata } from "next";
+import { JSONFormatter } from "@/components/tools/JSONFormatter";
 
 export const metadata: Metadata = {
-  title: 'JSON Formatter & Validator - Free Online Tool',
-  description: 'Format, validate, and beautify JSON with syntax highlighting. Free, fast, and works offline. No sign-up required. All processing happens in your browser.',
-  keywords: ['json formatter', 'json validator', 'json beautifier', 'json viewer', 'json pretty print', 'json minify'],
+  title: "JSON Formatter & Validator - Free Online Tool",
+  description: "Format, validate, and beautify JSON with syntax highlighting. Free, fast, and works offline. No sign-up required. All processing happens in your browser.",
+  keywords: ["json formatter", "json validator", "json beautifier", "json viewer", "json pretty print", "json minify"],
   openGraph: {
-    title: 'JSON Formatter & Validator - DevToolbox',
-    description: 'Format, validate, and beautify JSON with syntax highlighting',
-    type: 'website',
+    title: "JSON Formatter & Validator - DevToolbox",
+    description: "Format, validate, and beautify JSON with syntax highlighting",
+    type: "website",
   },
-}
+};
 
 export default function JSONFormatterPage() {
   return (
@@ -28,7 +28,7 @@ export default function JSONFormatterPage() {
       <div className="mt-16 prose dark:prose-invert max-w-none">
         <h2>About JSON Formatter</h2>
         <p>
-          JSON (JavaScript Object Notation) is a lightweight data interchange format that's easy for humans to read and write. 
+          JSON (JavaScript Object Notation) is a lightweight data interchange format that &apos; s easy for humans to read and write.
           Our JSON formatter helps you validate, format, and beautify JSON data instantly in your browser.
         </p>
         
@@ -47,7 +47,7 @@ export default function JSONFormatterPage() {
         <h3>How to Use</h3>
         <ol>
           <li>Paste or type your JSON in the input area</li>
-          <li>Click "Format JSON" to beautify or "Minify" to compress</li>
+          <li>Click &quot;Format JSON&quot; to beautify or &quot; Minify &quot; to compress</li>
           <li>Copy the formatted result or download as a file</li>
           <li>Use keyboard shortcuts: Ctrl+Enter (Windows) or Cmd+Enter (Mac) to format quickly</li>
         </ol>
@@ -62,5 +62,5 @@ export default function JSONFormatterPage() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
