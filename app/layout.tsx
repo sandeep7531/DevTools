@@ -9,7 +9,7 @@ import { Analytics } from "@/components/Analytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dev-toolbox.vercel.app"),
+  metadataBase: new URL("https://dev-tools-rose.vercel.app/"),
   title: {
     default: "DevToolbox - Free Developer Tools & Utilities",
     template: "%s | DevToolbox"
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dev-toolbox.vercel.app",
+    url: "https://dev-tools-rose.vercel.app/",
     title: "DevToolbox - Free Developer Tools & Utilities",
     description: "Free, fast, and privacy-focused developer tools. All processing happens in your browser.",
     siteName: "DevToolbox",
@@ -43,6 +43,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "LxuOQEkcgspypMsiFZi_lvCcVqPbLASfiZtkUY5DAHk",
+  },
 };
 
 export default function RootLayout({
@@ -52,6 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+
       <body className={inter.className}>
         <ThemeProvider>
           <div className="flex flex-col min-h-screen bg-white dark:bg-gray-950">
