@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Encode and decode URLs with support for query parameters. Free URL encoder tool for percent encoding and decoding.",
   keywords: ["url encoder", "url decoder", "urlencode", "urldecode", "percent encoding", "url escape", "query string encoder"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/url-encoder",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/url-encoder",
   },
   openGraph: {
     title: "URL Encoder & Decoder - DevToolbox",

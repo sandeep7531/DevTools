@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://dev-tools-rose.vercel.app";
+  const baseUrl = "https://dev-tool-box-murex.vercel.app";
 
   const tools = [
     "json-formatter",

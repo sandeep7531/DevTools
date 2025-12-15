@@ -9,7 +9,7 @@ import { Analytics } from "@/components/Analytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dev-tools-rose.vercel.app/"),
+  metadataBase: new URL("https://dev-tool-box-murex.vercel.app/"),
   title: {
     default: "DevToolbox - Free Developer Tools & Utilities",
     template: "%s | DevToolbox"
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   creator: "DevToolbox",
   publisher: "DevToolbox",
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/",
+    canonical: "https://dev-tool-box-murex.vercel.app/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dev-tools-rose.vercel.app/",
+    url: "https://dev-tool-box-murex.vercel.app/",
     title: "DevToolbox - Free Developer Tools & Utilities",
     description: "Free, fast, and privacy-focused developer tools. All processing happens in your browser.",
     siteName: "DevToolbox",
@@ -71,7 +71,7 @@ export default function RootLayout({
     "name": "DevToolbox",
     "applicationCategory": "DeveloperApplication",
     "description": "Free, fast, and privacy-focused developer tools. JSON formatter, Regex tester, Base64 encoder, JWT decoder, and more.",
-    "url": "https://dev-tools-rose.vercel.app/",
+    "url": "https://dev-tool-box-murex.vercel.app/",
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",

@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://dev-tools-rose.vercel.app/sitemap.xml",
+    sitemap: "https://dev-tool-box-murex.vercel.app/sitemap.xml",
   };
 }

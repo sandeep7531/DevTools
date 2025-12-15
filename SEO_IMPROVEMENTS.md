@@ -6,13 +6,13 @@
 - Created dynamic sitemap at `/app/sitemap.ts`
 - Includes homepage and all tool pages
 - Automatically updates with proper priorities and change frequencies
-- Accessible at: `https://dev-tools-rose.vercel.app/sitemap.xml`
+- Accessible at: `https://dev-tool-box-murex.vercel.app/sitemap.xml`
 
 ### 2. Robots.txt ✅
 - Created at `/app/robots.ts`
 - Allows all search engine crawlers
 - References sitemap location
-- Accessible at: `https://dev-tools-rose.vercel.app/robots.txt`
+- Accessible at: `https://dev-tool-box-murex.vercel.app/robots.txt`
 
 ### 3. Schema.org Structured Data (JSON-LD) ✅
 - Added WebApplication schema to main layout
@@ -75,7 +75,7 @@ Create social media preview images for better sharing:
 ### 2. Submit to Search Engines
 - **Google Search Console:** https://search.google.com/search-console
   - Already verified (I can see the verification code)
-  - Submit sitemap: `https://dev-tools-rose.vercel.app/sitemap.xml`
+  - Submit sitemap: `https://dev-tool-box-murex.vercel.app/sitemap.xml`
   - Request indexing for important pages
 
 - **Bing Webmaster Tools:** https://www.bing.com/webmasters

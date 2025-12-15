@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Format, validate, and beautify JSON with syntax highlighting. Free, fast, and works offline. No sign-up required. All processing happens in your browser.",
   keywords: ["json formatter", "json validator", "json beautifier", "json viewer", "json pretty print", "json minify", "json parser", "json online"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/json-formatter",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/json-formatter",
   },
   openGraph: {
     title: "JSON Formatter & Validator - DevToolbox",

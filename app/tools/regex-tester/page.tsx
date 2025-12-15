@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Test regular expressions with real-time matching, explanations, and common patterns. Free regex tester with syntax highlighting.",
   keywords: ["regex tester", "regular expression", "regex validator", "regex matcher", "regex tool", "pattern matching", "regex online"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/regex-tester",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/regex-tester",
   },
   openGraph: {
     title: "Regex Tester - DevToolbox",

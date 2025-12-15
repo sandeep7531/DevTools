@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Decode and inspect JWT tokens with payload visualization. Free JWT decoder tool with header and payload inspection.",
   keywords: ["jwt decoder", "json web token", "jwt parser", "decode jwt", "jwt validator", "jwt tool", "jwt debugger"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/jwt-decoder",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/jwt-decoder",
   },
   openGraph: {
     title: "JWT Decoder - DevToolbox",

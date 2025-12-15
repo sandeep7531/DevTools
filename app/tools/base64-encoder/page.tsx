@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Encode and decode Base64 strings instantly. Supports text and file encoding. Free, fast, and secure.",
   keywords: ["base64 encoder", "base64 decoder", "base64 converter", "encode base64", "decode base64", "base64 tool", "base64 online"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/base64-encoder",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/base64-encoder",
   },
   openGraph: {
     title: "Base64 Encoder & Decoder - DevToolbox",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Convert between Unix timestamps and human-readable dates. Free timestamp converter tool with support for milliseconds and timezones.",
   keywords: ["timestamp converter", "unix timestamp", "epoch converter", "date to timestamp", "timestamp to date", "epoch time", "unix time converter"],
   alternates: {
-    canonical: "https://dev-tools-rose.vercel.app/tools/timestamp-converter",
+    canonical: "https://dev-tool-box-murex.vercel.app/tools/timestamp-converter",
   },
   openGraph: {
     title: "Unix Timestamp Converter - DevToolbox",
