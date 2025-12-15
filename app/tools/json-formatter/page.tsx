@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { JSONFormatter } from "@/components/tools/JSONFormatter";
+import { HorizontalAd, InArticleAd } from "@/components/AdSense";
 
 export const metadata: Metadata = {
   title: "JSON Formatter & Validator - Free Online Tool",
@@ -24,8 +25,18 @@ export default function JSONFormatterPage() {
           Format, validate, and beautify JSON with syntax highlighting. All processing happens in your browser.
         </p>
       </div>
-      
+
+      {/* Top Ad */}
+      <div className="mb-8">
+        <HorizontalAd adSlot="YOUR_AD_SLOT_ID" />
+      </div>
+
       <JSONFormatter />
+
+      {/* In-Article Ad */}
+      <div className="my-12">
+        <InArticleAd adSlot="YOUR_AD_SLOT_ID" />
+      </div>
 
       {/* SEO Content */}
       <div className="mt-16 prose dark:prose-invert max-w-none">

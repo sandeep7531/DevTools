@@ -1,15 +1,16 @@
 import Link from "next/link";
-import { 
-  Code2, 
-  Regex, 
-  FileCode, 
-  Key, 
-  Link2, 
+import {
+  Code2,
+  Regex,
+  FileCode,
+  Key,
+  Link2,
   Clock,
   Sparkles,
   Zap,
   Shield
 } from "lucide-react";
+import { HorizontalAd, InFeedAd } from "@/components/AdSense";
 
 const tools = [
   {
@@ -91,6 +92,9 @@ export default function HomePage() {
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
           Free, fast, and privacy-focused utilities for developers. All processing happens in your browser.
         </p>
+
+        {/* Top Banner Ad */}
+        <HorizontalAd adSlot="YOUR_AD_SLOT_ID" className="max-w-4xl mx-auto my-8" />
         
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
@@ -123,6 +127,16 @@ export default function HomePage() {
             </p>
           </Link>
         ))}
+      </div>
+
+      {/* In-Feed Ad after tools grid */}
+      <div className="mt-8">
+        <InFeedAd adSlot="YOUR_AD_SLOT_ID" className="max-w-4xl mx-auto" />
+      </div>
+
+      {/* Bottom Banner Ad */}
+      <div className="mt-16">
+        <HorizontalAd adSlot="YOUR_AD_SLOT_ID" className="max-w-4xl mx-auto" />
       </div>
 
       {/* CTA Section */}
