@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Twitter, Heart } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="font-bold text-lg mb-4 dark:text-white">DevToolbox</h3>
+            <Image
+              src="/Images/logo.png"
+              alt="DevToolbox Logo"
+              width={360}
+              height={150}
+            // className="w-8 h-8"
+            />
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               Free, fast, and privacy-focused developer tools. All processing happens in your browser.
             </p>
@@ -23,14 +30,14 @@ export function Footer() {
               >
                 <Github className="w-5 h-5" />
               </a>
-              <a
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -62,7 +69,7 @@ export function Footer() {
           </div>
 
           {/* Company */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold mb-4 dark:text-white">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -86,7 +93,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-400">

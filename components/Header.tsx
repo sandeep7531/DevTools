@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Moon, Sun, Code2 } from "lucide-react";
+import Image from "next/image";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 export function Header() {
@@ -11,8 +12,14 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-7xl">
         <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-          <Code2 className="w-6 h-6 text-blue-500" />
-          <span className="font-bold text-xl dark:text-white">DevToolbox</span>
+          <Image
+            src="/Images/logo.png"
+            alt="DevToolbox Logo"
+            width={200}
+            height={120}
+            // className="w-8 h-8"
+          />
+          {/* <span className="font-bold text-xl dark:text-white">DevToolbox</span> */}
         </Link>
 
         <nav className="flex items-center space-x-6">
