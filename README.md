@@ -2,7 +2,8 @@
 
 A collection of fast, privacy-focused developer utilities built with Next.js 14, React, and TypeScript. All processing happens client-side - your data never leaves your browser.
 
-![DevToolbox](https://via.placeholder.com/1200x630/4F46E5/ffffff?text=DevToolbox)
+[https://dev-tool-box-murex.vercel.app]
+![DevToolbox](https://dev-tool-box-murex.vercel.app/)
 
 ## 🚀 Features
 
